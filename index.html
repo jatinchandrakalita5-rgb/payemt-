@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful!</title>
+    <!-- Google Fonts for premium clean typography -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Reset & Core Theme Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #0f172a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Abstract Floating Neon Background Glows */
+        .neon-glow-bg1, .neon-glow-bg2 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(160px);
+            opacity: 0.15;
+            z-index: 1;
+            pointer-events: none;
+            animation: floatGlow 12s ease-in-out infinite alternate;
+        }
+
+        .neon-glow-bg1 {
+            background: #00ffcc; /* Neon Cyan */
+            top: -15%;
+            left: -15%;
+        }
+
+        .neon-glow-bg2 {
+            background: #39ff14; /* Neon Lime Green */
+            bottom: -15%;
+            right: -15%;
+            animation-delay: -6s;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(80px, 50px) scale(1.2); }
+        }
+
+        /* Container Structure */
+        .success-wrapper {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 460px;
+            padding: 24px;
+        }
+
+        /* Premium Minimalist Success Card */
+        .success-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 36px;
+            padding: 50px 36px;
+            text-align: center;
+            box-shadow: 0 30px 70px rgba(57, 255, 20, 0.06), 0 10px 30px rgba(0, 0, 0, 0.02);
+            position: relative;
+            overflow: hidden;
+            animation: cardPopIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes cardPopIn {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Big Green Neon Lighting Tick Effect */
+        .tick-container {
+            width: 120px;
+            height: 120px;
+            background: #0f172a;
+            border-radius: 50%;
+            margin: 0 auto 32px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #39ff14;
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.6), inset 0 0 15px rgba(57, 255, 20, 0.3);
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        .tick-icon {
+            width: 50px;
+            height: 25px;
+            border-left: 6px solid #39ff14;
+            border-bottom: 6px solid #39ff14;
+            transform: rotate(-45deg) translate(6px, -4px);
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: drawTick 0.5s 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 25px rgba(57, 255, 20, 0.5), inset 0 0 10px rgba(57, 255, 20, 0.2); }
+            100% { box-shadow: 0 0 45px rgba(57, 255, 20, 0.9), inset 0 0 25px rgba(57, 255, 20, 0.5); }
+        }
+
+        @keyframes drawTick {
+            0% { width: 0; height: 0; opacity: 0; }
+            50% { width: 25px; height: 0; opacity: 1; }
+            100% { width: 50px; height: 25px; opacity: 1; }
+        }
+
+        /* Typography Styling */
+        .success-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .success-description {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 36px;
+        }
+
+        /* Premium Styled Action Button */
+        .action-home-btn {
+            display: block;
+            width: 100%;
+            background: #0f172a;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 18px 24px;
+            border-radius: 20px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Changes hover style to highlight neon green */
+        .action-home-btn:hover {
+            background: #39ff14;
+            color: #0f172a;
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* 3D Falling Gift Elements Styling Container */
+        .gift-rain-zone {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .gift-box {
+            position: absolute;
+            font-size: 2.5rem;
+            top: -50px;
+            animation: fallAnimation linear forwards;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+        }
+
+        @keyframes fallAnimation {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Ambient Neon Glows -->
+    <div class="neon-glow-bg1"></div>
+    <div class="neon-glow-bg2"></div>
+
+    <!-- Active 3D Gift Rain Zone Container -->
+    <div class="gift-rain-zone" id="gift-container"></div>
+
+    <div class="success-wrapper">
+        <div class="success-card">
+            
+            <!-- Neon Glowing Green Tick -->
+            <div class="tick-container">
+                <div class="tick-icon"></div>
+            </div>
+
+            <h1 class="success-title">Payment Received!</h1>
+            <p class="success-description">Thank you! Your peer-to-peer UPI transfer has successfully cleared inside our account logs. Your gift assets are unlocked.</p>
+            
+            <!-- Button updated with your requested message text -->
+            <button class="action-home-btn" onclick="window.location.reload();">
+                Thanks for your support!
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic handling the Custom 3D Falling Gift Box Animation Effects -->
+    <script>
+        const giftContainer = document.getElementById('gift-container');
+        const giftStyles = ['🎁', '📦', '✨', '🎉', '👑'];
+
+        function createFallingGift() {
+            const gift = document.createElement('div');
+            gift.classList.add('gift-box');
+            
+            gift.innerText = giftStyles[Math.floor(Math.random() * giftStyles.length)];
+            gift.style.left = Math.random() * 100 + 'vw';
+            gift.style.fontSize = (Math.random() * 1.5 + 1.5) + 'rem';
+            
+            const duration = Math.random() * 3 + 3;
+            gift.style.animationDuration = duration + 's';
+            
+            giftContainer.appendChild(gift);
+
+            setTimeout(() => {
+                gift.remove();
+            }, duration * 1000);
+        }
+
+        // Generate falling rewards immediately on page load
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createFallingGift, Math.random() * 2000);
+        }
+
+        // Keep dropping gifts periodically to maintain background activity mechanics
+        setInterval(createFallingGift, 400);
+    </script>
+
+</body>
+</html>
